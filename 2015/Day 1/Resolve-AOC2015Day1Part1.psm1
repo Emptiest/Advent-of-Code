@@ -17,7 +17,7 @@ function Resolve-AOC2015Day1Part1 {
     $Downs = $InputString.Length - $tempString.Length
 
     Write-Verbose "Up: $Ups"
-    Write-Verbose "Down: $Down"
+    Write-Verbose "Down: $Downs"
     $Result = $Ups - $Downs
     $Result
 }
