@@ -1,4 +1,4 @@
-function Resolve-AOC2015Day1 {
+function Resolve-AOC2015Day1Part1 {
     [CmdletBinding()]
     param (
         [String]$InputString
