@@ -8,7 +8,7 @@ function Get-HashFromString {
     $writer.write($String)
     $writer.Flush()
     $stringAsStream.Position = 0
-    $Output = Get-FileHash -InputStream $stringAsStream | Select-Object Hash
+    $Output = Get-FileHash -InputStream $stringAsStream -Algorithm MD5 | Select-Object -ExpandProperty Hash
     $Output
 }
 
@@ -24,7 +24,7 @@ function Resolve-AOC2015Day4Part1 {
     while($Searching){
         $Try = $String + $Postfix
         Write-Verbose "Trying $Try"
-        $Solution = Get-HashFromString -String $Try | Select-Object -ExpandProperty Hash
+        $Solution = Get-HashFromString -String $Try
         Write-Verbose "Hashed value is $Solution"
 
         if($Solution.StartsWith("00000")){
