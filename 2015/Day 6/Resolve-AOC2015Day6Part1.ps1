@@ -1,4 +1,4 @@
-function Toggle-Lights {
+function Switch-Lights {
     [CmdletBinding()]
     param (
         [ref]$LightsArray,
@@ -57,7 +57,7 @@ function Resolve-AOC2015Day6Part1 {
         {
             {$_ -like "turn on*"}    {Write-Verbose "Turning things on!"; TurnOnOff -LightsArray ([ref]$LightsArray) -x1 $x1 -y1 $y1 -x2 $x2 -y2 $y2 -bool $true}
             {$_ -like "turn off*"}   {Write-Verbose "Turning things off!"; TurnOnOff -LightsArray ([ref]$LightsArray) -x1 $x1 -y1 $y1 -x2 $x2 -y2 $y2 -bool $false}
-            {$_ -like "toggle*"}     {Write-Verbose "Toggling things!"; Toggle-Lights -LightsArray ([ref]$LightsArray) -x1 $x1 -y1 $y1 -x2 $x2 -y2 $y2}
+            {$_ -like "toggle*"}     {Write-Verbose "Toggling things!"; Switch-Lights -LightsArray ([ref]$LightsArray) -x1 $x1 -y1 $y1 -x2 $x2 -y2 $y2}
             Default {Write-Verbose "Switch statement didn't work."}
         }
     }
