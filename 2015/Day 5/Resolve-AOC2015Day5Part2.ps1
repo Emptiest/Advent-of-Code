@@ -9,18 +9,12 @@ function Resolve-AOC2015Day5Part2 {
 
     foreach($line in Get-Content $FilePath) {
         $Naughty = $false
-        if($line -match "^.*ab.*|.*cd.*|.*pq.*|.*xy.*$"){           # Rule 3: Do not contain certain strings "ab", "cd", "pq", or "xy"
+        if($line -notmatch "(..).*\1"){                             # Rule 1: Contain a pair of any two letters that appears at least twice without overlapping
             Write-Verbose "$line is naughty"
             $Naughty = $true
         }
         if(-not $Naughty){
-            if($line -notmatch "(\w)\1{1}"){                        # Rule 2: Contain at least one pair
-                Write-Verbose "$line is naughty"
-                $Naughty = $true
-            }
-        }
-        if(-not $Naughty){
-            if($line -notmatch "[aeiou].*[aeiou].*[aeiou]"){        # Rule 1: at least 3 vowels
+            if($line -notmatch "(.).\1"){                           # Rule 2: Containe at least one letter which repeats with exactly one letter in between
                 Write-Verbose "$line is naughty"
                 $Naughty = $true
             }
