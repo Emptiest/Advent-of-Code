@@ -1,12 +1,3 @@
-function Helper1 {
-    [CmdletBinding()]
-    param (
-        $Object
-    )
-
-    $output
-}
-
 function Resolve-AOC202301P1 {
     [CmdletBinding()]
     param (
