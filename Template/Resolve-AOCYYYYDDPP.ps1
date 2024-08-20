@@ -1,12 +1,24 @@
+function StoreInput {
+    param(
+        [string]$FilePath
+    )
+
+    $Lines = @()
+
+    foreach($Line in Get-Content $FilePath){
+        $Lines += $Line
+    }
+
+    $Lines
+}
+
 function Resolve-AOCYYYYDDPP {
     [CmdletBinding()]
     param (
         [string]$FilePath
     )
 
-    foreach($Line in Get-Content $FilePath){
-        #Do-Something
-    }
+    $RawInput = StoreInput -FilePath $FilePath
 
-    $output
+    $RawInput
 }
